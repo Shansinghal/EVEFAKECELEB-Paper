@@ -51,6 +51,23 @@ To run the landing page locally:
 
 ---
 
+## 🚀 Deployment on Render
+
+This repository is optimized for quick hosting on **Render** as a **Static Site**:
+
+### Option A: Automatic Build (Recommended)
+By default, Render looks for a `build` directory. We have provided a `package.json` that automates this. 
+When creating your **Static Site** on Render:
+* **Build Command:** `npm run build` (Render will run this automatically)
+* **Publish Directory:** `build` (Render will serve files from here)
+
+### Option B: Zero-Build Configuration
+If you prefer not to run any build steps:
+* **Build Command:** *Leave empty*
+* **Publish Directory:** `.` (Change this from `build` to `.` to serve directly from the root)
+
+---
+
 ## 👥 Authors
 
 * **Dr. Mansi Sharma** (Principal Investigator) - Assistant Professor - III, Thapar Institute of Engineering and Technology
@@ -59,3 +76,4 @@ To run the landing page locally:
 ---
 
 *&copy; 2025 EveFakeCeleb. All rights reserved.*
+

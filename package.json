@@ -1,0 +1,16 @@
+{
+  "name": "evefakeceleb-paper",
+  "version": "1.0.0",
+  "description": "EveFakeCeleb research landing page",
+  "main": "index.html",
+  "scripts": {
+    "build": "mkdir -p build && cp index.html style.css script.js logo.png build/"
+  },
+  "keywords": [
+    "deepfake",
+    "event-camera",
+    "neuromorphic"
+  ],
+  "author": "Shantanu Singhal",
+  "license": "MIT"
+}
