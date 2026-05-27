@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EveFakeCeleb — Event &amp; RGB Dataset for DeepFake Detection</title>
+  <meta name="description" content="EveFakeCeleb: A high-temporal-resolution event and RGB paired dataset for robust deepfake detection in real-world scenarios. Published by Thapar Institute of Engineering and Technology." />
+  <meta name="keywords" content="deepfake detection, event camera, neuromorphic computing, dataset, EveFakeCeleb, DVS, spiking neural networks" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="logo.png" alt="Thapar Institute Logo" class="nav-logo" />
+        <span class="nav-brand-text">Thapar Institute of Engineering and Technology<br />Patiala, Punjab, India</span>
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
+        <a href="#authors">Authors</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Deep Learning Research</div>
+      <h1><span class="highlight">EveFakeCeleb:</span> High-Temporal-Resolution Event and RGB Paired Dataset for Robust DeepFake Detection in Real-World Scenarios</h1>
+      <p class="hero-sub">Harnessing microsecond-scale neuromorphic event streams alongside standard video to build next-generation deepfake detectors that see what others miss.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Explore Research
+        </a>
+        <a href="#resources" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Dataset
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <h2 class="section-header fade-in"><span class="emoji">🔍</span> About the Research</h2>
+      <div class="about-card fade-in">
+        <p><strong>EveFakeCeleb</strong> is a pioneering dataset engineered to advance the frontier of deepfake detection. Unlike traditional datasets that rely exclusively on video frames, EveFakeCeleb uniquely combines standard <strong>RGB video data</strong> with <strong>event-based data</strong> that captures microsecond-level changes in motion — including blinks, lip movements, and micro-expressions.</p>
+        <p>These subtle physiological cues are notoriously difficult for generative models to replicate faithfully. Deepfakes often exhibit temporally inconsistent micro-expressions that, while invisible to the naked eye, leave distinct signatures in the asynchronous, high-temporal-resolution event stream. This makes event data an exceptionally powerful modality for identifying synthetic content.</p>
+        <p>By pairing RGB and event streams into a cohesive, research-ready dataset, <strong>EveFakeCeleb</strong> empowers researchers to develop more <strong>accurate, generalizable, and robust</strong> detection models that perform effectively in real-world scenarios — even against high-quality or adversarially crafted deepfakes that defeat conventional frame-based analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ========== SPECS ========== -->
+  <section class="section-padding" id="specs">
+    <div class="container">
+      <h2 class="section-header fade-in"><span class="emoji">⚙️</span> Technical Specifications</h2>
+
+      <!-- Key Metrics -->
+      <div class="metrics-grid fade-in">
+        <div class="card metric-card">
+          <div class="metric-value">408</div>
+          <div class="metric-label">Real Videos</div>
+          <div class="metric-desc">Authentic clips compiled from the Celeb-DF benchmark</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value">795</div>
+          <div class="metric-label">Fake Videos</div>
+          <div class="metric-desc">High-fidelity face-swap deepfakes with paired event data</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value">~0.001s</div>
+          <div class="metric-label">Temporal Precision</div>
+          <div class="metric-desc">Microsecond-scale resolution via V2E DVS simulator</div>
+        </div>
+      </div>
+
+      <!-- Simulation Parameters Table -->
+      <h3 class="use-cases-header fade-in">Hardware-Level Simulation Parameters</h3>
+      <div class="table-wrapper fade-in">
+        <table class="spec-table" id="spec-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+              <th>Value / Setting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Contrast Positive Threshold (C<sub>p</sub>)</td>
+              <td>Logarithmic intensity change to trigger an ON event</td>
+              <td>0.11</td>
+            </tr>
+            <tr>
+              <td>Negative Contrast Threshold (C<sub>n</sub>)</td>
+              <td>Logarithmic intensity change to trigger an OFF event</td>
+              <td>0.10</td>
+            </tr>
+            <tr>
+              <td>Threshold Variation (σ)</td>
+              <td>Pixel-to-pixel variability (Gaussian distributed)</td>
+              <td>0.03 (3%)</td>
+            </tr>
+            <tr>
+              <td>Photoreceptor Bandwidth (f<sub>c</sub>)</td>
+              <td>Cutoff frequency modeling finite pixel response speed</td>
+              <td>15 Hz</td>
+            </tr>
+            <tr>
+              <td>Leak Rate (λ)</td>
+              <td>Rate of spontaneous background activity per pixel</td>
+              <td>0.1 Hz</td>
+            </tr>
+            <tr>
+              <td>Refractory Period</td>
+              <td>Minimum enforced time gap between consecutive events</td>
+              <td>1 ms</td>
+            </tr>
+            <tr>
+              <td>Slow-Motion Upsampling Factor</td>
+              <td>Frame interpolation factor for finer temporal resolution</td>
+              <td>20×</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Use Cases -->
+      <h3 class="use-cases-header fade-in">Architecture Compatibility &amp; Use Cases</h3>
+      <div class="use-cases-list fade-in">
+        <div class="use-case-item">
+          <div class="use-case-icon">🧠</div>
+          <div class="use-case-content">
+            <h4>Advanced Deep Learning Architectures</h4>
+            <p>Optimized for training Event-based Convolutional Networks, Spiking Neural Networks (SNNs), and temporal models like RNNs, LSTMs, and Transformers.</p>
+          </div>
+        </div>
+        <div class="use-case-item">
+          <div class="use-case-icon">👁️</div>
+          <div class="use-case-content">
+            <h4>Anomaly Tracking</h4>
+            <p>Specialized in spotting micro-expression transitions, eye-blink dynamics, and desynchronized lip-syncing artifacts in synthetic media.</p>
+          </div>
+        </div>
+        <div class="use-case-item">
+          <div class="use-case-icon">🛡️</div>
+          <div class="use-case-content">
+            <h4>Spoofing &amp; Attack Prevention</h4>
+            <p>Sparse event representation naturally mitigates motion blur and acts as a robust shield against malicious adversarial digital tampering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ========== RESOURCES ========== -->
+  <section class="section-padding" id="resources">
+    <div class="container">
+      <h2 class="section-header fade-in"><span class="emoji">📦</span> Resources</h2>
+      <div class="resources-grid fade-in">
+        <!-- Dataset -->
+        <div class="card resource-card">
+          <div class="resource-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>Download Dataset</h3>
+          <p>Access the complete EveFakeCeleb dataset with paired RGB and event data for your research pipeline.</p>
+          <a href="#" class="btn btn-card" id="btn-dataset">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Dataset
+          </a>
+        </div>
+        <!-- Paper -->
+        <div class="card resource-card">
+          <div class="resource-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>View Research Paper</h3>
+          <p>Read the full academic paper detailing our methodology, simulator setup, and experimental results.</p>
+          <a href="#" class="btn btn-card" id="btn-paper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Research Paper
+          </a>
+        </div>
+        <!-- GitHub -->
+        <div class="card resource-card">
+          <div class="resource-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <h3>GitHub Repository</h3>
+          <p>Access source code, V2E simulation scripts, pipeline implementation details, and evaluation models.</p>
+          <a href="#" class="btn btn-card" id="btn-github">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ========== AUTHORS ========== -->
+  <section class="section-padding" id="authors">
+    <div class="container">
+      <h2 class="section-header fade-in"><span class="emoji">👥</span> Research Team</h2>
+      <div class="authors-grid fade-in">
+        <!-- Dr. Mansi Sharma -->
+        <div class="card author-card">
+          <div class="author-avatar">DMS</div>
+          <h3>Dr. Mansi Sharma</h3>
+          <div class="author-title">Assistant Professor - III</div>
+          <p class="author-spec">Computer Vision, Computational Imaging and Photography, Machine Learning and Data Science</p>
+          <div class="author-links">
+            <a href="mailto:mansi.sharma@thapar.edu" class="author-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              mansi.sharma@thapar.edu
+            </a>
+            <a href="https://www.linkedin.com/in/mansi-sharma-89942623/" target="_blank" rel="noopener noreferrer" class="author-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <!-- Shantanu Singhal -->
+        <div class="card author-card">
+          <div class="author-avatar">SS</div>
+          <h3>Shantanu Singhal</h3>
+          <div class="author-title">Computer Engineering Undergrad</div>
+          <p class="author-spec">Computer Engineering, Deep Learning, Data Engineering</p>
+          <div class="author-links">
+            <a href="mailto:ssinghal1_be23@thapar.edu" class="author-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              ssinghal1_be23@thapar.edu
+            </a>
+            <a href="https://www.linkedin.com/in/shantanu-singhal-ss1410/" target="_blank" rel="noopener noreferrer" class="author-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 EveFakeCeleb &mdash; <a href="https://www.thapar.edu" target="_blank" rel="noopener noreferrer">Thapar Institute of Engineering and Technology</a>, Patiala, India</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
