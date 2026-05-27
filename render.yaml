@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: evefakeceleb
+    env: static
+    buildCommand: npm run build
+    publishPath: build
